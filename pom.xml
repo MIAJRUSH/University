@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.github.miajrush</groupId>
+	<artifactId>University</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	
+	<name>University Maven Webapp</name>
+	
+	<properties>
+		<!-- Maven -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		
+		<!-- Spring -->
+		<spring-framework.version>5.3.6</spring-framework.version>
+		
+		<!-- Hibernate -->
+		<hibernate-core.version>6.0.0.Alpha7</hibernate-core.version>
+		<hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
+		
+		<!-- Javax -->
+		<javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+		
+		<!-- SQL -->
+		<mysql-connector-java.version>8.0.24</mysql-connector-java.version>
+		
+		<!-- Data source-->
+		<tomcat-jdbc.version>10.0.5</tomcat-jdbc.version>
+		
+		<!-- Thymeleaf -->
+		<thymeleaf.version>3.0.12.RELEASE</thymeleaf.version>
+		
+		<!-- Webjars -->
+		<bootstrap.version>5.0.0-beta3</bootstrap.version>
+		<jquery.version>3.6.0</jquery.version>
+		<datatables.version>1.10.24</datatables.version>
+	</properties>
+	
+	<dependencies>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+		
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate-core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
+		</dependency>
+		
+		<!-- Javax -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet-api.version}</version>
+		</dependency>
+		
+		<!-- SQL -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector-java.version}</version>
+		</dependency>
+		
+		<!-- Data source -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+			<version>${tomcat-jdbc.version}</version>
+		</dependency>
+		
+		<!-- Thymeleaf -->
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring5</artifactId>
+			<version>${thymeleaf.version}</version>
+		</dependency>
+		
+		<!-- Webjars -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>${bootstrap.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>${jquery.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>datatables</artifactId>
+			<version>${datatables.version}</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<finalName>University</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.22.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>3.2.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.5.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
