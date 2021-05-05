@@ -14,8 +14,8 @@
 	<properties>
 		<!-- Maven -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 		
 		<!-- Spring -->
 		<spring-framework.version>5.3.6</spring-framework.version>
