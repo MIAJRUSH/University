@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block th:fragment="input(label, field, fieldName, type, isRequired)">
+	<label class="form-label" for="input" th:text="${label}"></label>
+	<div class="mb-3">
+		<input id="input"
+		       th:class="${(field == null) || (#strings.isEmpty(field))}
+		       ? 'form-control' : ${#fields.hasErrors(fieldName)
+		       ? 'form-control is-invalid' : 'form-control is-valid'}"
+		       th:type="${type}" th:value="*{__${fieldName}__}" th:name="${fieldName}" th:required="${isRequired}">
+		<div class="valid-feedback" th:text="'Looks good!'"></div>
+		<div class="invalid-feedback" th:if="${#fields.hasErrors(fieldName)}" th:errors="*{__${fieldName}__}"></div>
+	</div>
+</th:block>
+
+<th:block th:fragment="select(label, field, list)">
+	<label class="form-label" for="select" th:text="${label}"></label>
+	<select class="form-select" id="select" th:field="*{__${field}__.id}" required>
+		<option value="" th:text="${'Select ' + #strings.toLowerCase(label)}"></option>
+		<option th:each="item : ${list}"
+		        th:value="${item.id}"
+		        th:text="${item.name}"></option>
+	</select>
+</th:block>
+</body>
+</html>

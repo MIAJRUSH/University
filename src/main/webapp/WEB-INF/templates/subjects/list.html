@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/resources :: tdHead ('Subjects')"></div>
+<body>
+<header th:replace="fragments/layout :: header"></header>
+
+<section class="container pt-3">
+	<h1>Subjects</h1>
+	<table class="table table-hover align-middle text-center" id="table">
+		<thead class="table-light">
+		<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Hours number</td>
+			<td>Action</td>
+		</tr>
+		</thead>
+		
+		<tbody>
+		<tr th:each="item : ${subjects}">
+			<td>
+				<a class="w-100 btn btn-secondary" th:href="@{/subjects/{id} (id=${item.id})}" th:text="${item.id}"></a>
+			</td>
+			<td th:text="${item.name}"></td>
+			<td th:text="${item.hoursNumber}"></td>
+			<td>
+				<div class="btn-group">
+					<div th:replace="fragments/buttons ::
+					editAndDeleteOutlineBtn(@{/subjects/{id}/edit (id=${item.id})}, @{/subjects/{id} (id=${item.id})})"></div>
+				</div>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	
+	<div>
+		<hr>
+		<form th:action="@{/subjects/new}">
+			<input class="btn btn-primary" type="submit" value="Create">
+		</form>
+	</div>
+</section>
+
+
+<footer th:replace="fragments/layout :: footer"></footer>
+
+<div th:replace="fragments/resources :: dtScripts"></div>
+<script th:replace="fragments/resources :: bootstrapBundleScript"></script>
+<script>
+	$(document).ready(function () {
+		$('#table').DataTable({
+			"columnDefs": [{
+				"targets": [3],
+				"orderable": false,
+			}]
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header th:fragment="header">
+	<div class="pb-1">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+			<div class="container-fluid">
+				<a class="navbar-brand" th:href="@{/}">
+					<img class="align-top" src="/resources/images/school.svg" alt="University" width="26">
+					University</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+				        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarScroll">
+					<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" th:href="@{/groups}">Groups</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" th:href="@{/students}">Students</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" th:href="@{/teachers}">Teachers</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" th:href="@{/subjects}">Subjects</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" th:href="@{/lessons}">Lessons</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" th:href="@{/progress}">Progress</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<footer th:fragment="footer">
+	<div class="pt-3">
+		<div class="bg-light text-center text-lg-start">
+			<div class="container p-4">
+				<div class="row">
+					<div class="col">
+						<h5 class="text-uppercase">Footer Content</h5>
+						<p>
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+							molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
+							voluptatem veniam, est atque cumque eum delectus sint!
+						</p>
+					</div>
+					
+					<div class="col-2">
+						<h5 class="text-uppercase">Social</h5>
+						<a class="text-decoration-none pe-1" href="https://vk.com/miajrush">
+							<img src="/resources/images/social/vk.svg" alt="VK" width="24">
+						</a>
+						<a class="text-decoration-none pe-1" href="https://www.instagram.com/miajrush/">
+							<img src="/resources/images/social/instagram.svg" alt="Instagram" width="24">
+						</a>
+						<a class="text-decoration-none pe-1" href="https://github.com/miajrush">
+							<img src="/resources/images/social/github.svg" alt="GitHub" width="24">
+						</a>
+						<a class="text-decoration-none pe-1" href="https://www.linkedin.com/in/miajrush">
+							<img src="/resources/images/social/linkedin.svg" alt="LinkedIn" width="24">
+						</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+				<span>© 2021 Copyright:</span>
+				<a class="text-dark" th:href="@{/}">University</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<th:block th:fragment="tableRow(rowName, rowText)">
+	<th th:text="${rowName}">ID</th>
+	<td th:text="${rowText}"></td>
+</th:block>
+
+<th:block th:fragment="tableDropdown(rowName, list)">
+	<th th:text="${rowName}"></th>
+	<td>
+		<div class="dropdown">
+			<button th:disabled="${list.isEmpty() ? true : false}"
+			        class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStudents" data-bs-toggle="dropdown"
+			        aria-expanded="false" th:text="${list.isEmpty() ? 'Empty' : 'Show'}"></button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownStudents">
+				<li th:each="student : ${list}">
+					<a class="dropdown-item" th:href="@{/students/{id} (id=${student.id})}" th:text="${student.name}"></a>
+				</li>
+			</ul>
+		</div>
+	</td>
+</th:block>
+
+<th:block th:fragment="dropdown(list)">
+	<div class="dropdown">
+		<button th:disabled="${list.isEmpty() ? true : false}"
+		        class="btn btn-secondary dropdown-toggle" type="button" id="dropdownStudents" data-bs-toggle="dropdown"
+		        aria-expanded="false" th:text="${list.isEmpty() ? 'Empty' : 'Show'}"></button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownStudents">
+			<li th:each="student : ${list}">
+				<a class="dropdown-item" th:href="@{/students/{id} (id=${student.id})}" th:text="${student.name}"></a>
+			</li>
+		</ul>
+	</div>
+</th:block>
+
+<th:block th:fragment="indexCard(imgSrc, alt, cardTitle, cardText, linkHref)">
+	<div class="col-6 col-sm-4 col-md-3 col-xxl-2 pb-1">
+		<div class="card h-100">
+			<img th:src="${'/resources/images/' + imgSrc}" class="card-img-top" th:alt="${alt}">
+			<div class="card-body text-center">
+				<h5 class="card-title" th:text="${cardTitle}"></h5>
+				<p class="card-text" th:text="${cardText}"></p>
+				<a class="stretched-link" th:href="@{${linkHref}}"></a>
+			</div>
+		</div>
+	</div>
+</th:block>
+</html>

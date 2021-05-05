@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/resources :: head ('Group')"></div>
+<body>
+<header th:replace="fragments/layout :: header"></header>
+
+<section class="container pt-3">
+	<h1>Group</h1>
+	<table class="table table-bordered table-hover align-middle text-center">
+		<tr th:insert="fragments/layout :: tableRow('ID', ${group.id})"></tr>
+		<tr th:insert="fragments/layout :: tableRow('Name', ${group.name})"></tr>
+		<tr th:insert="fragments/layout :: tableRow('Students number', ${group.studentsNumber})"></tr>
+		<tr th:insert="fragments/layout :: tableDropdown('Students', ${group.students})"></tr>
+	</table>
+	
+	<div class="btn-group">
+		<div th:replace="fragments/buttons :: editAndDeleteBtn(
+		@{/groups/{id}/edit (id=${group.id})},
+		@{/groups/{id} (id=${group.id})})"></div>
+	</div>
+	
+	<div class="pt-2">
+		<div th:if="${error}" class="alert alert-warning alert-dismissible fade show" role="alert">
+			First, remove students from the group
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+	</div>
+</section>
+
+<footer th:replace="fragments/layout :: footer"></footer>
+<script th:replace="fragments/resources :: bootstrapBundleScript"></script>
+</body>
+</html>

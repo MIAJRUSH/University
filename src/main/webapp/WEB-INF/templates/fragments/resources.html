@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head (title)">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title th:text="${title}"></title>
+	
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/resources/styles/index.css">
+</head>
+
+<head th:fragment="tdHead (title)">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title th:text="${title}"></title>
+	
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/datatables/css/dataTables.bootstrap5.min.css">
+</head>
+
+<script th:fragment="bootstrapBundleScript" src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<div th:fragment="dtScripts">
+	<script src="/jquery/jquery.min.js"></script>
+	<script src="/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="/datatables/js/dataTables.bootstrap5.min.js"></script>
+</div>
+</html>

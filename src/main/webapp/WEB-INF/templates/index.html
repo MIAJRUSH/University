@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/resources :: head('University')"></div>
+<body>
+<header th:replace="fragments/layout :: header"></header>
+
+<section>
+	<div class="container pb-3">
+		<div class="row">
+			<div class="col text-center">
+				<h1>Welcome to University</h1>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row row-cols-auto justify-content-center">
+			<div th:replace="fragments/layout :: indexCard(
+			'graduates.svg', 'Group', 'Groups',
+			'If you follow this link, you will see a list of all university groups.', '/groups')"></div>
+			<div th:replace="fragments/layout :: indexCard(
+			'graduate.svg', 'Student', 'Students',
+			'If you follow this link, you will see a list of all university students.', '/students')"></div>
+			<div th:replace="fragments/layout :: indexCard(
+			'owl.svg', 'Teacher', 'Teachers',
+			'If you follow this link, you will see a list of all university teachers.', '/teachers')"></div>
+			<div th:replace="fragments/layout :: indexCard(
+			'scholarship.svg', 'Subject', 'Subjects',
+			'If you follow this link, you will see a list of all university subjects.', '/subjects')"></div>
+			<div th:replace="fragments/layout :: indexCard(
+			'backpack.svg', 'Lesson', 'Lessons',
+			'If you follow this link, you will see a list of all university lessons.', '/lessons')"></div>
+			<div th:replace="fragments/layout :: indexCard(
+			'exam.svg', 'Progress', 'Progress',
+			'If you follow this link, you will see a list of all grades of the university students.', '/progress')"></div>
+		</div>
+	</div>
+</section>
+
+<footer th:replace="fragments/layout :: footer"></footer>
+<script th:replace="fragments/resources :: bootstrapBundleScript"></script>
+</body>
+</html>
