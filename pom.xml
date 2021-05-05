@@ -6,7 +6,7 @@
 	
 	<groupId>com.github.miajrush</groupId>
 	<artifactId>University</artifactId>
-	<version>0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	
 	<name>University Maven Webapp</name>
