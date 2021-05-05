@@ -18,6 +18,13 @@
 		@{/teachers/{id}/edit (id=${teacher.id})},
 		@{/teachers/{id} (id=${teacher.id})})"></div>
 	</div>
+	
+	<div class="pt-2">
+		<div th:if="${error}" class="alert alert-warning alert-dismissible fade show" role="alert">
+			First, remove teacher from the lessons
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+	</div>
 </section>
 
 <footer th:replace="fragments/layout :: footer"></footer>

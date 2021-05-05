@@ -124,7 +124,7 @@ public class TeacherController {
 	}
 	
 	/**
-	 * If the list of lessons contains the teacher, the page will update.
+	 * If the list of lessons contains the teacher, the model will add an "error" attribute and the page will update.
 	 *
 	 * @param teacher the {@link Teacher} to delete
 	 * @param model an object to add attributes
@@ -135,8 +135,9 @@ public class TeacherController {
 		List<Lesson> lessons = lessonService.findAll();
 		for (Lesson lesson : lessons) {
 			if (lesson.getTeacher().equals(teacher)) {
-				model.addAttribute("teacher", teacher);
-				return "redirect:/teachers";
+				model.addAttribute("teacher", teacherService.findById(teacher.getId()));
+				model.addAttribute("error", "true");
+				return "teachers/details";
 			}
 		}
 		

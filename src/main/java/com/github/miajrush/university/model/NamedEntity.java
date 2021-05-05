@@ -1,5 +1,7 @@
 package com.github.miajrush.university.model;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
@@ -10,6 +12,8 @@ import javax.validation.constraints.NotBlank;
  * Simple JavaBean domain object adds a name property to {@link BaseEntity}. Used as a base class for objects needing
  * these properties.
  */
+@Getter
+@Setter
 @MappedSuperclass
 public class NamedEntity extends BaseEntity {
 	@NotBlank
@@ -17,12 +21,4 @@ public class NamedEntity extends BaseEntity {
 	@Length(max = 255, message = "Too long")
 	@Column(name = "name")
 	protected String name;
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
 }

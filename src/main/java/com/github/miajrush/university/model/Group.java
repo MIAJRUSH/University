@@ -1,5 +1,9 @@
 package com.github.miajrush.university.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +18,9 @@ import java.util.List;
 /**
  * Simple JavaBean domain object representing a group.
  */
+@EqualsAndHashCode(of = "", callSuper = true)
+@Getter
+@Setter
 @Entity
 @Table(name = "groups_table")
 public class Group extends NamedEntity {
@@ -49,26 +56,5 @@ public class Group extends NamedEntity {
 	public void removeStudent(Student student) {
 		students.remove(student);
 		studentsNumber--;
-	}
-	
-	public Integer getStudentsNumber() {
-		return studentsNumber;
-	}
-	
-	public void setStudentsNumber(Integer studentsNumber) {
-		this.studentsNumber = studentsNumber;
-	}
-	
-	public List<Student> getStudents() {
-		return students;
-	}
-	
-	public void setStudents(List<Student> students) {
-		this.students = students;
-	}
-	
-	@Override
-	public String toString() {
-		return "Group{" + "id=" + id + ", studentsNumber=" + studentsNumber + ", name='" + name + '\'' + '}';
 	}
 }

@@ -1,5 +1,8 @@
 package com.github.miajrush.university.model;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -9,6 +12,8 @@ import javax.validation.constraints.NotNull;
 /**
  * Simple JavaBean domain object representing a lesson.
  */
+@EqualsAndHashCode(of = "", callSuper = true)
+@Data
 @Entity
 @Table(name = "lessons")
 public class Lesson extends BaseEntityProperty {
@@ -26,30 +31,4 @@ public class Lesson extends BaseEntityProperty {
 	@OneToOne
 	@JoinColumn(name = "lesson_type")
 	private LessonType lessonType;
-	
-	public Lesson() {}
-	
-	public Subject getSubject() {
-		return subject;
-	}
-	
-	public void setSubject(Subject subject) {
-		this.subject = subject;
-	}
-	
-	public Teacher getTeacher() {
-		return teacher;
-	}
-	
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
-	}
-	
-	public LessonType getLessonType() {
-		return lessonType;
-	}
-	
-	public void setLessonType(LessonType lessonType) {
-		this.lessonType = lessonType;
-	}
 }

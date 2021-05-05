@@ -1,5 +1,8 @@
 package com.github.miajrush.university.model;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -11,6 +14,8 @@ import javax.validation.constraints.Pattern;
 /**
  * Simple JavaBean domain object representing a teacher.
  */
+@EqualsAndHashCode(of = "", callSuper = true)
+@Data
 @Entity
 @Table(name = "teachers")
 public class Teacher extends NamedEntity {
@@ -22,27 +27,4 @@ public class Teacher extends NamedEntity {
 	@OneToOne
 	@JoinColumn(name = "position")
 	private TeacherPosition position;
-	
-	public Teacher() {}
-	
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	
-	public TeacherPosition getPosition() {
-		return position;
-	}
-	
-	public void setPosition(TeacherPosition position) {
-		this.position = position;
-	}
-	
-	@Override
-	public String toString() {
-		return "Teacher{" + "name='" + name + '\'' + '}';
-	}
 }
