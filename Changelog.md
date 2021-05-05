@@ -12,3 +12,7 @@
     - Controllers
 - Add HTML pages to display content and Thymeleaf for HTML control
 - Add properties for database and pom.xml
+
+## 1.1.0-SNAPSHOT
+
+- Add Lombok to the project
