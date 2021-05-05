@@ -42,6 +42,6 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	
 	@Override
 	public void delete(Teacher teacher) {
-		em.remove(teacher);
+		em.remove(em.merge(teacher));
 	}
 }

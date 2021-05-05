@@ -42,6 +42,6 @@ public class ProgressRepositoryImpl implements ProgressRepository {
 	
 	@Override
 	public void delete(Progress progress) {
-		em.remove(progress);
+		em.remove(em.merge(progress));
 	}
 }

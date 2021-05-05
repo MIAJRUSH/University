@@ -1,5 +1,7 @@
 package com.github.miajrush.university.web.controller;
 
+import com.github.miajrush.university.model.Progress;
+import com.github.miajrush.university.service.ProgressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,12 +30,15 @@ public class StudentController {
 	private static final String VIEW_CREATE_OR_UPDATE_STUDENT_FORM = "students/createOrUpdateForm";
 	private final StudentService studentService;
 	private final GroupService groupService;
+	private final ProgressService progressService;
 	private Group oldGroup;
 	
 	@Autowired
-	public StudentController(StudentService studentService, GroupService groupService) {
+	public StudentController(StudentService studentService, GroupService groupService,
+	                         ProgressService progressService) {
 		this.studentService = studentService;
 		this.groupService = groupService;
+		this.progressService = progressService;
 		
 		oldGroup = null;
 	}
@@ -126,13 +131,23 @@ public class StudentController {
 	
 	/**
 	 * We need to find an object by ID to avoid exceptions.
+	 * <p>
+	 * If the list of progress contains the subject, the progress will be deleted.
 	 *
-	 * @param id a {@link Lesson} id to delete
+	 * @param student a {@link Student} to delete
 	 * @return the name of the HTML page
 	 */
 	@PostMapping("/{id}")
-	public String delete(@PathVariable Integer id) {
-		studentService.delete(studentService.findById(id));
+	public String delete(@ModelAttribute Student student) {
+		List<Progress> progress = progressService.findAll();
+		for (Progress p : progress) {
+			if (p.getStudent().equals(student)) {
+				progressService.delete(p);
+			}
+		}
+		
+		student = studentService.findById(student.getId());
+		studentService.delete(student);
 		return "redirect:/students";
 	}
 }

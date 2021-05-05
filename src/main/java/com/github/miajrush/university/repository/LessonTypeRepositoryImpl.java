@@ -42,6 +42,6 @@ public class LessonTypeRepositoryImpl implements LessonTypeRepository {
 	
 	@Override
 	public void delete(LessonType lessonType) {
-		em.remove(lessonType);
+		em.remove(em.merge(lessonType));
 	}
 }

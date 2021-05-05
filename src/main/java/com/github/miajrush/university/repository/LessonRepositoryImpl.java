@@ -42,6 +42,6 @@ public class LessonRepositoryImpl implements LessonRepository {
 	
 	@Override
 	public void delete(Lesson lesson) {
-		em.remove(lesson);
+		em.remove(em.merge(lesson));
 	}
 }

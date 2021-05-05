@@ -42,6 +42,6 @@ public class GroupRepositoryImpl implements GroupRepository {
 	
 	@Override
 	public void delete(Group group) {
-		em.remove(group);
+		em.remove(em.merge(group));
 	}
 }

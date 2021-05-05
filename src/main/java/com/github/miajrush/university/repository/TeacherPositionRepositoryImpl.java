@@ -42,6 +42,6 @@ public class TeacherPositionRepositoryImpl implements TeacherPositionRepository 
 	
 	@Override
 	public void delete(TeacherPosition teacherPosition) {
-		em.remove(teacherPosition);
+		em.remove(em.merge(teacherPosition));
 	}
 }

@@ -125,7 +125,7 @@ public class SubjectController {
 		List<Lesson> lessons = lessonService.findAll();
 		for (Lesson lesson : lessons) {
 			if (lesson.getSubject().equals(subject)) {
-				model.addAttribute("subject", subject);
+				model.addAttribute("subject", subjectService.findById(subject.getId()));
 				model.addAttribute("error", "true");
 				return "subjects/details";
 			}

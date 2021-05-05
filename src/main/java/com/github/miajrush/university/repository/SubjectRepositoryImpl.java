@@ -42,6 +42,6 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 	
 	@Override
 	public void delete(Subject subject) {
-		em.remove(subject);
+		em.remove(em.merge(subject));
 	}
 }
