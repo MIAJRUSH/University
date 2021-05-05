@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/resources :: head ('Student')"></div>
+<body>
+<header th:replace="fragments/layout :: header"></header>
+
+<section class="px-5">
+	<div class="container">
+		<h1>Student</h1>
+		<form method="post" th:object="${student}">
+			<table>
+				<tr>
+					<td th:insert="fragments/input :: input ('Name', *{name}, 'name', 'text', 'true')">
+				</tr>
+				<tr>
+					<td th:insert="fragments/input :: input ('Course', *{course}, 'course', 'number', 'true')">
+				</tr>
+				<tr>
+					<td th:insert="fragments/input :: input ('PhoneNumber', *{phoneNumber}, 'phoneNumber', 'text', 'true')">
+				</tr>
+				<tr>
+					<td th:insert="fragments/input :: input ('E-mail', *{email}, 'email', 'email', 'false')">
+				</tr>
+				<tr>
+					<td th:insert="fragments/input :: select('Group', 'group', ${groups})"></td>
+				</tr>
+			</table>
+			
+			<hr>
+			<input class="btn btn-primary" type="submit" value="Submit">
+		</form>
+	</div>
+</section>
+
+<footer th:replace="fragments/layout :: footer"></footer>
+<script th:replace="fragments/resources :: bootstrapBundleScript"></script>
+</body>
+</html>

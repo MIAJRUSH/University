@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/resources :: head ('Subject')"></div>
+<body>
+<header th:replace="fragments/layout :: header"></header>
+
+<section class="container pt-3">
+	<h1>Subject</h1>
+	<table class="table table-bordered table-hover align-middle text-center">
+		<tr th:insert="fragments/layout :: tableRow('ID', ${subject.id})"></tr>
+		<tr th:insert="fragments/layout :: tableRow('Name', ${subject.name})"></tr>
+		<tr th:insert="fragments/layout :: tableRow('Hours number', ${subject.hoursNumber})"></tr>
+	</table>
+	
+	<div class="btn-group">
+		<div th:replace="fragments/buttons :: editAndDeleteBtn(
+		@{/subjects/{id}/edit (id=${subject.id})},
+		@{/subjects/{id} (id=${subject.id})})"></div>
+	</div>
+	
+	<div class="pt-2">
+		<div th:if="${error}" class="alert alert-warning alert-dismissible fade show" role="alert">
+			First, remove subject from the lessons
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+	</div>
+</section>
+
+<footer th:replace="fragments/layout :: footer"></footer>
+<script th:replace="fragments/resources :: bootstrapBundleScript"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block th:fragment="editAndDeleteOutlineBtn(editAction, delAction)">
+	<form class="pe-1" th:action="@{${editAction}}">
+		<button class="btn btn-outline-primary" type="submit">Edit</button>
+	</form>
+	
+	<form method="post" th:action="@{${delAction}}">
+		<button class="btn btn-outline-primary" type="submit">Delete</button>
+	</form>
+</th:block>
+
+<th:block th:fragment="editAndDeleteBtn(editAction, delAction)">
+	<form class="pe-1" th:action="@{${editAction}}">
+		<button class="btn btn-primary" type="submit">Edit</button>
+	</form>
+	
+	<form method="post" th:action="@{${delAction}}">
+		<button class="btn btn-primary" type="submit">Delete</button>
+	</form>
+</th:block>
+
+<th:block th:fragment="createBtn(action)">
+	<hr>
+	<form th:action="${action}">
+		<input class="btn btn-primary" type="submit" value="Create">
+	</form>
+</th:block>
+</body>
+</html>

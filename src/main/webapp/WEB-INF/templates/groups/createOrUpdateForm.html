@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/resources :: head ('Group')"></div>
+<body>
+<header th:replace="fragments/layout :: header"></header>
+
+<section class="px-5">
+	<div class="container">
+		<h1>Group</h1>
+		<form method="post" th:object="${group}">
+			<table>
+				<tr>
+					<td th:insert="fragments/input :: input('Name', *{name}, 'name', 'text', 'true')">
+				</tr>
+			</table>
+			
+			<hr>
+			<input class="btn btn-primary" type="submit" value="Submit">
+		</form>
+	</div>
+</section>
+
+<footer th:replace="fragments/layout :: footer"></footer>
+<script th:replace="fragments/resources :: bootstrapBundleScript"></script>
+</body>
+</html>

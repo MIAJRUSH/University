@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/resources :: head ('Student')"></div>
+<body>
+<header th:replace="fragments/layout :: header"></header>
+
+<section class="container pt-3">
+	<h1>Student</h1>
+	<table class="table table-bordered table-hover align-middle text-center">
+		<tr th:insert="fragments/layout :: tableRow('ID', ${student.id})"></tr>
+		<tr th:insert="fragments/layout :: tableRow('Name', ${student.name})"></tr>
+		<tr th:insert="fragments/layout :: tableRow('Course', ${student.course})"></tr>
+		<tr th:insert="fragments/layout :: tableRow('Phone number', ${student.phoneNumber})"></tr>
+		<tr th:insert="fragments/layout :: tableRow('E-mail', ${student.email})"></tr>
+		<tr th:insert="fragments/layout :: tableRow('Group', ${student.group.name})"></tr>
+	</table>
+	
+	<div class="btn-group">
+		<div th:replace="fragments/buttons :: editAndDeleteBtn(
+		@{/students/{id}/edit (id=${student.id})},
+		@{/students/{id} (id=${student.id})})"></div>
+	</div>
+</section>
+
+<footer th:replace="fragments/layout :: footer"></footer>
+<script th:replace="fragments/resources :: bootstrapBundleScript"></script>
+</body>
+</html>
