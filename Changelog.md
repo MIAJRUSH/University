@@ -16,3 +16,7 @@
 ## 1.1.0-SNAPSHOT
 
 - Add Lombok to the project
+
+## 1.1.1-SNAPSHOT
+
+- Add a custom exception for handling a search request by ID
