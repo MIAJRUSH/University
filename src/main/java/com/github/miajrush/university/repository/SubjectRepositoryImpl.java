@@ -1,6 +1,7 @@
 package com.github.miajrush.university.repository;
 
 import com.github.miajrush.university.model.Subject;
+import com.github.miajrush.university.web.exception.NoSuchEntityException;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -25,7 +26,7 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 	public Subject findById(Integer id) {
 		Subject subject = em.find(Subject.class, id);
 		if (subject == null) {
-			throw new RuntimeException("Entity isn't found");
+			throw new NoSuchEntityException(Subject.class, id);
 		}
 		return subject;
 	}

@@ -1,6 +1,7 @@
 package com.github.miajrush.university.repository;
 
 import com.github.miajrush.university.model.TeacherPosition;
+import com.github.miajrush.university.web.exception.NoSuchEntityException;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -25,7 +26,7 @@ public class TeacherPositionRepositoryImpl implements TeacherPositionRepository 
 	public TeacherPosition findById(Integer id) {
 		TeacherPosition teacherPosition = em.find(TeacherPosition.class, id);
 		if (teacherPosition == null) {
-			throw new RuntimeException("Entity isn't found");
+			throw new NoSuchEntityException(TeacherPosition.class, id);
 		}
 		return teacherPosition;
 	}

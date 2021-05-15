@@ -1,6 +1,7 @@
 package com.github.miajrush.university.repository;
 
 import com.github.miajrush.university.model.Student;
+import com.github.miajrush.university.web.exception.NoSuchEntityException;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -25,7 +26,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 	public Student findById(Integer id) {
 		Student student = em.find(Student.class, id);
 		if (student == null) {
-			throw new RuntimeException("Entity isn't found");
+			throw new NoSuchEntityException(Student.class, id);
 		}
 		return student;
 	}

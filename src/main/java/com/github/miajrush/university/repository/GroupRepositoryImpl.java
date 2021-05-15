@@ -1,6 +1,7 @@
 package com.github.miajrush.university.repository;
 
 import com.github.miajrush.university.model.Group;
+import com.github.miajrush.university.web.exception.NoSuchEntityException;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -25,7 +26,7 @@ public class GroupRepositoryImpl implements GroupRepository {
 	public Group findById(Integer id) {
 		Group group = em.find(Group.class, id);
 		if (group == null) {
-			throw new RuntimeException();
+			throw new NoSuchEntityException(Group.class, id);
 		}
 		return group;
 	}

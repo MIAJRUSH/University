@@ -1,6 +1,7 @@
 package com.github.miajrush.university.repository;
 
 import com.github.miajrush.university.model.Progress;
+import com.github.miajrush.university.web.exception.NoSuchEntityException;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -25,7 +26,7 @@ public class ProgressRepositoryImpl implements ProgressRepository {
 	public Progress findById(Integer id) {
 		Progress progress = em.find(Progress.class, id);
 		if (progress == null) {
-			throw new RuntimeException("Entity isn't found");
+			throw new NoSuchEntityException(Progress.class, id);
 		}
 		return progress;
 	}

@@ -1,6 +1,7 @@
 package com.github.miajrush.university.repository;
 
 import com.github.miajrush.university.model.LessonType;
+import com.github.miajrush.university.web.exception.NoSuchEntityException;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -25,7 +26,7 @@ public class LessonTypeRepositoryImpl implements LessonTypeRepository {
 	public LessonType findById(Integer id) {
 		LessonType lessonType = em.find(LessonType.class, id);
 		if (lessonType == null) {
-			throw new RuntimeException("Entity isn't found");
+			throw new NoSuchEntityException(LessonType.class, id);
 		}
 		return lessonType;
 	}
