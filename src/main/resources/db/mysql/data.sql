@@ -55,27 +55,27 @@ VALUES ('Physical education', 100);
 -- ---------------------------------------------
 -- students
 -- ---------------------------------------------
-INSERT IGNORE INTO students (name, course, phoneNumber, email, group_id)
+INSERT IGNORE INTO students (name, course, phone_number, email, group_id)
 VALUES ('Trevor Garrison', 1, 9998889988, 'garrison@gmail.com', 1);
-INSERT IGNORE INTO students (name, course, phoneNumber, email, group_id)
+INSERT IGNORE INTO students (name, course, phone_number, email, group_id)
 VALUES ('Justin Farmer', 2, 9998887766, 'farmer@gmail.com', 2);
-INSERT IGNORE INTO students (name, course, phoneNumber, email, group_id)
+INSERT IGNORE INTO students (name, course, phone_number, email, group_id)
 VALUES ('Ryan Crossman', 3, 9998885544, 'crossman@gmail.com', 3);
-INSERT IGNORE INTO students (name, course, phoneNumber, email, group_id)
+INSERT IGNORE INTO students (name, course, phone_number, email, group_id)
 VALUES ('Abigail Charlson', 4, 9998883322, 'charlson@gmail.com', 4);
-INSERT IGNORE INTO students (name, course, phoneNumber, email, group_id)
+INSERT IGNORE INTO students (name, course, phone_number, email, group_id)
 VALUES ('Deborah Lee', 5, 9998881100, 'lee@gmail.com', 5);
 
 -- ---------------------------------------------
 -- teachers
 -- ---------------------------------------------
-INSERT IGNORE INTO teachers (name, phoneNumber, position)
+INSERT IGNORE INTO teachers (name, phone_number, position)
 VALUES ('Katie Addington', 1001001010, 1);
-INSERT IGNORE INTO teachers (name, phoneNumber, position)
+INSERT IGNORE INTO teachers (name, phone_number, position)
 VALUES ('Francis Gilbert', 1002002020, 2);
-INSERT IGNORE INTO teachers (name, phoneNumber, position)
+INSERT IGNORE INTO teachers (name, phone_number, position)
 VALUES ('Emily Carroll', 1003003030, 3);
-INSERT IGNORE INTO teachers (name, phoneNumber, position)
+INSERT IGNORE INTO teachers (name, phone_number, position)
 VALUES ('Zhoshua Scott', 1004004040, 4);
 
 -- ---------------------------------------------

@@ -20,7 +20,7 @@ import javax.validation.constraints.Pattern;
 @Table(name = "teachers")
 public class Teacher extends NamedEntity {
 	@Pattern(regexp = "\\d{10}", message = "Must be 10 digits")
-	@Column(name = "phoneNumber")
+	@Column(name = "phone_number")
 	private String phoneNumber;
 	
 	@NotNull

@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS students
 	id          INT UNSIGNED     NOT NULL AUTO_INCREMENT,
 	name        VARCHAR(100)     NOT NULL,
 	course      TINYINT UNSIGNED NOT NULL DEFAULT 1,
-	phoneNumber VARCHAR(10)      NOT NULL,
+	phone_number VARCHAR(10)      NOT NULL,
 	email       VARCHAR(45)      NULL,
 	group_id    INT UNSIGNED     NOT NULL,
 	PRIMARY KEY (id),
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS teachers
 (
 	id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	name        VARCHAR(100) NOT NULL,
-	phoneNumber VARCHAR(10)  NOT NULL,
+	phone_number VARCHAR(10)  NOT NULL,
 	position    INT UNSIGNED NOT NULL DEFAULT 1,
 	PRIMARY KEY (id),
 	FOREIGN KEY (position) REFERENCES teacher_positions (id)

@@ -30,7 +30,7 @@ public class Student extends NamedEntity {
 	private Integer course;
 	
 	@Pattern(regexp = "\\d{10}", message = "Must be 10 digits")
-	@Column(name = "phoneNumber")
+	@Column(name = "phone_number")
 	private String phoneNumber;
 	
 	@Email(message = "Must be valid")
