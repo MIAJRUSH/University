@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/resources :: head('University')"></div>
+<body>
+<header th:replace="fragments/layout :: header"></header>
+
+<section class="text-center">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-3">
+				<img class="mb-4" src="/resources/images/school.svg" alt="University" width="50%">
+				<h3 class="mb-3 fw-normal">Please sign in</h3>
+				
+				<form method="post" th:action="@{/login}">
+					<div class="form-floating pb-1">
+						<input class="form-control" type="text" name="username" id="floatingInput" placeholder="Username" required
+						       autofocus>
+						<label for="floatingInput">Username</label>
+					</div>
+					<div class="form-floating pb-2">
+						<input class="form-control" type="password" name="password" id="floatingPassword" placeholder="Password"
+						       required>
+						<label for="floatingPassword">Password</label>
+					</div>
+					
+					<input class="w-100 btn btn-primary" type="submit" value="Sign in">
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer th:replace="fragments/layout :: footer"></footer>
+<script th:replace="fragments/resources :: bootstrapBundleScript"></script>
+</body>
+</html>
