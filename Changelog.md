@@ -20,3 +20,8 @@
 ## 1.1.1-SNAPSHOT
 
 - Add a custom exception for handling a search request by ID
+
+## 1.1.2-SNAPSHOT
+
+- Update phone number column name in a database for students and teachers
+- Add Spring Security support. Add configs and login form
