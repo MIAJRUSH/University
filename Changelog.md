@@ -25,3 +25,7 @@
 
 - Update phone number column name in a database for students and teachers
 - Add Spring Security support. Add configs and login form
+
+## 1.1.3-SNAPSHOT
+
+- Add Spring Security Support to HTML pages. Some UI improvements
