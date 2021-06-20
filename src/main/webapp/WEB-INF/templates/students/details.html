@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <div th:replace="fragments/resources :: head ('Student')"></div>
 <body>
 <header th:replace="fragments/layout :: header"></header>
@@ -15,7 +15,7 @@
 		<tr th:insert="fragments/layout :: tableRow('Group', ${student.group.name})"></tr>
 	</table>
 	
-	<div class="btn-group">
+	<div sec:authorize="hasRole('ADMIN')" class="btn-group">
 		<div th:replace="fragments/buttons :: editAndDeleteBtn(
 		@{/students/{id}/edit (id=${student.id})},
 		@{/students/{id} (id=${student.id})})"></div>

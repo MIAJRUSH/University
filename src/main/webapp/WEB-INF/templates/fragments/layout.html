@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <header th:fragment="header">
 	<div class="pb-1">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -33,7 +33,10 @@
 						</li>
 					</ul>
 				</div>
-				<a class="btn btn-outline-primary" role="button" th:href="@{/login}">Sign-in</a>
+				<a sec:authorize="!isAuthenticated()" class="btn btn-outline-primary" role="button"
+				   th:href="@{/login}">Sign-in</a>
+				<a sec:authorize="isAuthenticated()" class="btn btn-outline-danger" role="button"
+				   th:href="@{/logout}">Logout</a>
 			</div>
 		</nav>
 	</div>

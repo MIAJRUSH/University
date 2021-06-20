@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <div th:replace="fragments/resources :: tdHead ('Students')"></div>
 <body>
 <header th:replace="fragments/layout :: header"></header>
@@ -9,13 +9,13 @@
 	<table class="table table-hover align-middle text-center" id="table">
 		<thead class="table-light">
 		<tr>
-			<td>ID</td>
-			<td>Name</td>
-			<td>Course</td>
-			<td>Phone number</td>
-			<td>E-mail</td>
-			<td>Group</td>
-			<td>Action</td>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Course</th>
+			<th>Phone number</th>
+			<th>E-mail</th>
+			<th>Group</th>
+			<th sec:authorize="hasRole('ADMIN')">Action</th>
 		</tr>
 		</thead>
 		
@@ -30,7 +30,7 @@
 			<td th:if="${not item.email.isEmpty()}" th:text="${item.email}"></td>
 			<td th:unless="${not item.email.isEmpty()}">-</td>
 			<td th:text="${item.group.name}"></td>
-			<td>
+			<td sec:authorize="hasRole('ADMIN')">
 				<div class="btn-group">
 					<div th:replace="fragments/buttons ::
 					editAndDeleteOutlineBtn(@{/students/{id}/edit (id=${item.id})}, @{/students/{id} (id=${item.id})})"></div>
@@ -52,7 +52,7 @@
 
 <div th:replace="fragments/resources :: dtScripts"></div>
 <script th:replace="fragments/resources :: bootstrapBundleScript"></script>
-<script>
+<script sec:authorize="hasRole('ADMIN')">
 	$(document).ready(function () {
 		$('#table').DataTable({
 			"columnDefs": [{
@@ -60,6 +60,11 @@
 				"orderable": false,
 			}]
 		});
+	});
+</script>
+<script sec:authorize="!hasRole('ADMIN')">
+	$(document).ready(function () {
+		$('#table').DataTable();
 	});
 </script>
 </body>

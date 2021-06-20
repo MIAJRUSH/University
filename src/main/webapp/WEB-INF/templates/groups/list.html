@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <div th:replace="fragments/resources :: tdHead ('Groups')"></div>
 <body>
 <header th:replace="fragments/layout :: header"></header>
@@ -13,19 +13,19 @@
 			<th>Name</th>
 			<th>Number of students</th>
 			<th>List of students</th>
-			<th>Action</th>
+			<th sec:authorize="hasRole('ADMIN')">Action</th>
 		</tr>
 		</thead>
 		
 		<tbody>
 		<tr th:each="item : ${groups}">
-			<th>
+			<td>
 				<a class="w-100 btn btn-secondary" th:href="@{/groups/{id} (id=${item.id})}" th:text="${item.id}"></a>
-			</th>
+			</td>
 			<td th:text="${item.name}"></td>
 			<td th:text="${item.studentsNumber}"></td>
 			<td th:insert="fragments/layout :: dropdown(${item.students})"></td>
-			<td>
+			<td sec:authorize="hasRole('ADMIN')">
 				<div class="btn-group">
 					<div th:replace="fragments/buttons ::
 					editAndDeleteOutlineBtn(@{/groups/{id}/edit (id=${item.id})}, @{/groups/{id} (id=${item.id})})"></div>
@@ -42,11 +42,21 @@
 
 <div th:replace="fragments/resources :: dtScripts"></div>
 <script th:replace="fragments/resources :: bootstrapBundleScript"></script>
-<script>
+<script sec:authorize="hasRole('ADMIN')">
 	$(document).ready(function () {
 		$('#table').DataTable({
 			"columnDefs": [{
 				"targets": [3, 4],
+				"orderable": false,
+			}]
+		});
+	});
+</script>
+<script sec:authorize="!hasRole('ADMIN')">
+	$(document).ready(function () {
+		$('#table').DataTable({
+			"columnDefs": [{
+				"targets": [3],
 				"orderable": false,
 			}]
 		});
