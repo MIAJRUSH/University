@@ -18,27 +18,28 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		
 		<!-- Spring -->
-		<spring-framework.version>5.3.6</spring-framework.version>
+		<spring-framework.version>5.3.8</spring-framework.version>
 		<spring.security.version>5.5.0</spring.security.version>
 		
 		<!-- Hibernate -->
-		<hibernate-core.version>6.0.0.Alpha7</hibernate-core.version>
+		<hibernate-core.version>6.0.0.Alpha8</hibernate-core.version>
 		<hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
 		
 		<!-- Javax -->
 		<javax.servlet-api.version>4.0.1</javax.servlet-api.version>
 		
 		<!-- SQL -->
-		<mysql-connector-java.version>8.0.24</mysql-connector-java.version>
+		<mysql-connector-java.version>8.0.25</mysql-connector-java.version>
 		
 		<!-- Data source-->
-		<tomcat-jdbc.version>10.0.5</tomcat-jdbc.version>
+		<tomcat-jdbc.version>10.1.0-M1</tomcat-jdbc.version>
 		
 		<!-- Thymeleaf -->
 		<thymeleaf.version>3.0.12.RELEASE</thymeleaf.version>
+		<thymeleaf-extras.version>3.0.4.RELEASE</thymeleaf-extras.version>
 		
 		<!-- Webjars -->
-		<bootstrap.version>5.0.0-beta3</bootstrap.version>
+		<bootstrap.version>5.0.1</bootstrap.version>
 		<jquery.version>3.6.0</jquery.version>
 		<datatables.version>1.10.24</datatables.version>
 		
@@ -107,6 +108,11 @@
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf-spring5</artifactId>
 			<version>${thymeleaf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+			<version>${thymeleaf-extras.version}</version>
 		</dependency>
 		
 		<!-- Webjars -->
